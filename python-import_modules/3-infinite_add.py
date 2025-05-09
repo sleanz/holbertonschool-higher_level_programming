@@ -1,13 +1,21 @@
-#!/usr/bin/python3
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) == 1:
-        print(0)
-    elif len(sys.argv) == 2:
-        print(sys.argv[1])
+#!/usr/bin/env python3
+import sys
+
+def print_arguments():
+    argv = sys.argv[1:]  # Skip the first argument (script name)
+    argc = len(argv)
+    
+    # Print the number of arguments with proper grammar
+    if argc == 1:
+        print("1 argument:")
+    elif argc == 0:
+        print("0 arguments.")
     else:
-        sum = 0
-        for i in range(1, len(sys.argv)):
-            a = int(sys.argv[i])
-            sum = sum + a
-        print(sum)
+        print(f"{argc} arguments:")
+    
+    # Print each argument with its position
+    for i in range(argc):
+        print(f"{i+1}: {argv[i]}")
+
+if __name__ == "__main__":
+    print_arguments()

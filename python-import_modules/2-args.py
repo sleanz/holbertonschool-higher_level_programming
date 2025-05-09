@@ -1,12 +1,21 @@
-#!/usr/bin/python3
-if __name__ == "__main__":
-    import sys
-    if len(sys.argv) == 1:
+#!/usr/bin/env python3
+import sys
+
+def main():
+    argv = sys.argv
+    argc = len(argv) - 1  # Subtract 1 to exclude the script name
+    
+    # Print number of arguments with correct grammar
+    if argc == 1:
+        print("1 argument:")
+    elif argc == 0:
         print("0 arguments.")
-    elif len(sys.argv) == 2:
-        print("{} argument:".format(1))
-        print("{}: {}".format(1, sys.argv[1]))
     else:
-        print("{} arguments:".format(len(sys.argv) - 1))
-        for i in range(1, len(sys.argv)):
-            print("{}: {}".format(i, sys.argv[i]))
+        print(f"{argc} arguments:")
+    
+    # Print each argument with its position
+    for i in range(1, len(argv)):
+        print(f"{i}: {argv[i]}")
+
+if __name__ == "__main__":
+    main()
